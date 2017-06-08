@@ -1,0 +1,39 @@
+{
+  "global": {
+    "cssNamespace": "mjmm",
+    "breakpoints": {
+      "small": 600,
+      "medium": 768,
+      "large": 1280
+    }
+  },
+  "leaflet": {
+    "mapId": "mj-leaflet-map",
+    "labelUrl": "http://api.mapbox.com/styles/v1/simonwoerpel/cj0xv72fk00wi2rqp74nln4ln/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1Ijoic2ltb253b2VycGVsIiwiYSI6ImNqMHA0cGY4eDAwd3QzMm1yZm9yY3c0cWUifQ.78weiiM4vcLanNNg-v7EBA",
+    "gridUrl": "http://minijobs-tiles.medienrevolte.de/grid/{z}/{x}/{y}.json",
+    "useJsonP": false,
+    "tileLayers": {
+      "Gesamt": "http://minijobs-tiles.medienrevolte.de/map/{z}/{x}/{y}.png",
+      "Weiblich": "http://minijobs-tiles.medienrevolte.de/map/{z}/{x}/{y}.png",
+      "Männlich": "http://minijobs-tiles.medienrevolte.de/map/{z}/{x}/{y}.png"
+    },
+    "bBox": [[47.27, 5.87], [55.1, 15.04]],
+    "maxZoom": 10,
+    "minZoom": 6,
+    "attribution": "&copy; <a href='http://osm.org/copyright'>OpenStreetMap</a> contributors"
+  },
+  "historyChart": {
+    "width": 230,
+    "height": 70,
+    "margin": {
+      "top": 10,
+      "right": 20,
+      "bottom": 20,
+      "left": 20
+    },
+    "xExtent": ["2003", "2016"],
+    "yExtent": [0, 15],
+    "yTickValues": [0, 5, 10, 15]
+  }
+}
+

@@ -1,0 +1,51 @@
+@include cssPrefix('searchbox') {
+  position: absolute;  // FIXME
+  display: block;
+  margin-bottom: 10px;
+  width: 100%;
+  z-index: 1110;
+
+  @include bp-sm {
+    position: absolute;
+    width: 300px;
+    top: 10px;
+    right: 10px;
+  }
+
+  &__input {
+    display: block;
+    width: 100%;
+    padding: 3px;
+  }
+
+  &__result-list {
+    position: absolute;
+    top: 34px;
+    display: block;
+    width: 100%;
+    background-color: white;
+    background-color: rgba(255, 255, 255, .9);
+    margin: 0;
+    margin-top: 10px;
+    padding: 0;
+    border: 1px solid gray;
+    z-index: 100;
+  }
+
+  &__result-list-item {
+    cursor: pointer;
+    padding: 10px;
+    list-style: none;
+
+    span {
+      display: block;
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    &:hover {
+      background-color: lighten(gray, 40%);
+    }
+  }
+
+}

@@ -1,0 +1,36 @@
+@include cssPrefix('history-chart') {
+
+  clear: both;  // because of `dl` above
+  display: block;
+  width: 100%;
+  height: 100px;
+
+  &__svg {
+
+    .line {
+      fill: none;
+
+      &--t {
+        stroke: $total-color;
+      }
+
+      &--e {
+        stroke: $exclusive-color;
+      }
+
+      &--i {
+        stroke: $inclusive-color;
+      }
+    }
+
+    .axis {
+      &--y {
+        text {
+          fill: $black;
+        }
+      }
+    }
+
+  }
+
+}

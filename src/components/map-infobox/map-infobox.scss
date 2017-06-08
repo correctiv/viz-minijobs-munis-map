@@ -1,0 +1,90 @@
+@import './history-chart/history-chart.scss';
+
+@include cssPrefix('infobox') {
+
+  // FIXME
+  // @include visible(&);
+  display: none;
+  &.-visible {
+    display: block;
+  }
+
+  position: absolute;
+  background-color: $white-transp;
+  padding: 15px;
+  border: 1px solid $gray-dark;
+  z-index: 1111;
+
+  @include bp-sm {
+    width: 300px;
+  }
+
+  &__title {
+    margin-top: 0;
+    font-family: $font-neuzeit;
+  }
+
+  &__section {
+    display: block;
+    width: 100%;
+
+    @include bp-xs {
+      float: left;
+      width: 50%;
+    }
+
+    @include bp-sm {
+      float: none;
+      width: 100%;
+    }
+  }
+
+  p {
+    padding-bottom: 0;
+  }
+
+  dl {
+    display: block;
+    padding-right: 10px;
+    // width: 33%;
+    float: left;
+  }
+
+  dt {
+    padding-top: .7em;
+    font-size: 20px;
+    line-height: 1em;
+    font-family: $font-neuzeit;
+    font-weight: bold;
+  }
+
+  dd {
+    font-weight: normal;
+    line-height: 1.2em;
+
+    &.badge {
+      padding: 3px 5px 3px 5px;
+      border-radius: 3px;
+    }
+
+    &.badge--t {
+      background-color: $total-color;
+    }
+
+    &.badge--e {
+      background-color: $exclusive-color;
+    }
+
+    &.badge--i {
+      background-color: $inclusive-color;
+    }
+  }
+
+  &__close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+
+    @include hide-bigger();
+  }
+}
