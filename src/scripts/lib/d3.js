@@ -21,3 +21,7 @@ export {
   timeParse,
   timeFormat
 } from 'd3-time-format'
+
+export {
+  csvParse
+} from 'd3-dsv'

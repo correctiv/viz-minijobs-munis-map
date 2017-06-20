@@ -1,29 +1,28 @@
-import initLeaflet from './init_leaflet.js'
+import initMapbox from './init_mapbox.js'
 
-<leaflet-map>
+<mapbox-map>
 
-  <div id={ mapId } ref={ mapId } class={ opts.config.util.getClass('leaflet-container') }></div>
+  <div id={ config.mapId } ref={ config.mapId } class={ opts.config.util.getClass('mapbox-container') }></div>
 
-  this.config = this.opts.config.leaflet
-  this.mapId = this.config.mapId
+  this.config = this.opts.config.mapbox
   this.currentMarker = null
 
   this.on('mount', () => {
-    this.map = initLeaflet(this.mapId, this.config)
-    this.map.fitBounds(this.config.bBox)
+    this.map = initMapbox(this.config)
+    // this.map.fitBounds(this.config.bBox)
 
     // have map stuff available
-    riot.STORE.leaflet.containerWidth = this._getContainerWidth()
-    riot.STORE.leaflet.map = this.map
+    riot.STORE.mapbox.containerWidth = this._getContainerWidth()
+    riot.STORE.mapbox.map = this.map
   })
 
   riot.control.on(riot.EVT.mapJumpTo, ({lat, lon, data}) => {
-    this.map.setView({lat, lon}, 9)
-    this._setMarker({lat, lon}, data.name)
+    this.map.easeTo({center: [lon, lat], zoom: 8})
+    // this._setMarker({lat, lon}, data.name)
   })
 
   riot.control.on(riot.EVT.windowResize, () => {
-    riot.STORE.leaflet.containerWidth = this._getContainerWidth()
+    riot.STORE.mapbox.containerWidth = this._getContainerWidth()
   })
 
   riot.control.on(riot.EVT.mapClearMarker, () => this._clearMarker())
@@ -41,6 +40,6 @@ import initLeaflet from './init_leaflet.js'
     this.currentMarker = null
   }
 
-  this._getContainerWidth = () => this.refs[this.mapId].clientWidth
+  this._getContainerWidth = () => this.refs[this.config.mapId].clientWidth
 
-</leaflet-map>
+</mapbox-map>

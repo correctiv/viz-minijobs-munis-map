@@ -1,4 +1,4 @@
-import './leaflet-map/leaflet-map.tag'
+import './mapbox-map/mapbox-map.tag'
 import './map-infobox/map-infobox.tag'
 import './map-searchbox/map-searchbox.tag'
 
@@ -7,8 +7,8 @@ import './map-searchbox/map-searchbox.tag'
 
   <map-searchbox getclass={ opts.config.util.getClass } />
 
-  <leaflet-map
-    class={ opts.config.util.getClass('leaflet-wrapper') }
+  <mapbox-map
+    class={ opts.config.util.getClass('mapbox-wrapper') }
     config={ opts.config }
   />
 

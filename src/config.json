@@ -7,18 +7,17 @@
       "large": 1280
     }
   },
-  "leaflet": {
-    "mapId": "mj-leaflet-map",
+  "mapbox": {
+    "accessToken": "pk.eyJ1Ijoic2ltb253b2VycGVsIiwiYSI6ImNqMHA0cGY4eDAwd3QzMm1yZm9yY3c0cWUifQ.78weiiM4vcLanNNg-v7EBA",
+    "mapId": "mj-map",
     "labelUrl": "http://api.mapbox.com/styles/v1/simonwoerpel/cj0xv72fk00wi2rqp74nln4ln/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1Ijoic2ltb253b2VycGVsIiwiYSI6ImNqMHA0cGY4eDAwd3QzMm1yZm9yY3c0cWUifQ.78weiiM4vcLanNNg-v7EBA",
-    "gridUrl": "http://minijobs-tiles.medienrevolte.de/grid/{z}/{x}/{y}.json",
-    "useJsonP": false,
-    "tileLayers": {
-      "Gesamt": "http://minijobs-tiles.medienrevolte.de/map/{z}/{x}/{y}.png",
-      "Weiblich": "http://minijobs-tiles.medienrevolte.de/map/{z}/{x}/{y}.png",
-      "Männlich": "http://minijobs-tiles.medienrevolte.de/map/{z}/{x}/{y}.png"
+    "layers": {
+      "Wohnort insgesamt": "mapbox://styles/simonwoerpel/cj3oa7i5q000c2spone0levze"
     },
     "bBox": [[47.27, 5.87], [55.1, 15.04]],
-    "maxZoom": 10,
+    "center": [10.4, 51.4],
+    "initZoom": 6,
+    "maxZoom": 12,
     "minZoom": 6,
     "attribution": "&copy; <a href='http://osm.org/copyright'>OpenStreetMap</a> contributors"
   },

@@ -29,8 +29,7 @@ module.exports = (options) => {
         template: './src/index.html'
       }),
       new Webpack.ProvidePlugin({
-        riot: 'riot',
-        L: 'leaflet'
+        riot: 'riot'
       })
     ],
     module: {

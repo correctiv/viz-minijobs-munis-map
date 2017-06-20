@@ -1,6 +1,6 @@
 // store
 const S = {
-  leaflet: {
+  mapbox: {
     map: null,
     containerWidth: null
   },
