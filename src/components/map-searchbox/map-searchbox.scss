@@ -16,6 +16,7 @@
     display: block;
     width: 100%;
     padding: 3px;
+    font-size: 15px;
   }
 
   &__result-list {
@@ -23,28 +24,29 @@
     top: 34px;
     display: block;
     width: 100%;
-    background-color: white;
-    background-color: rgba(255, 255, 255, .9);
+    background-color: $white-transp;
+    box-shadow: $box-shadow;
     margin: 0;
     margin-top: 10px;
     padding: 0;
-    border: 1px solid gray;
     z-index: 100;
-  }
 
-  &__result-list-item {
-    cursor: pointer;
-    padding: 10px;
-    list-style: none;
+    &__item {
+      cursor: pointer;
+      padding: 10px;
+      list-style: none;
+      @include transition(background-color, $transition-duration);
 
-    span {
-      display: block;
-      font-size: 12px;
-      font-weight: bold;
-    }
+      span {
+        display: block;
+        font-size: 12px;
+        font-weight: bold;
+      }
 
-    &:hover {
-      background-color: lighten(gray, 40%);
+      &:hover {
+        @include transition(background-color, $transition-duration);
+        background-color: $gray-light;
+      }
     }
   }
 

@@ -5,7 +5,7 @@ import getJumpToItem from './get_jumpto_item.js'
 
   <input type="text"
     oninput={ doSearch } class={ getClass('input') }
-    placeholder="Suche nach Deiner Stadt..."
+    placeholder="Suche nach Deiner Stadt oder Postleitzahl..."
   />
   <ul if={ results.length } class={ getClass('result-list') }>
     <li each={ results }
