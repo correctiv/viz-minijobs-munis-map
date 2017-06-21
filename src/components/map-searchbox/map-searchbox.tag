@@ -1,15 +1,15 @@
 import {search, states} from '../../data/entry.js'
 import getJumpToItem from './get_jumpto_item.js'
 
-<map-searchbox class={ opts.getclass('searchbox') }>
+<map-searchbox class={ getClass() }>
 
   <input type="text"
-    oninput={ doSearch } class={ opts.getclass('searchbox__input') }
+    oninput={ doSearch } class={ getClass('input') }
     placeholder="Suche nach Deiner Stadt..."
   />
-  <ul if={ results.length } class={ opts.getclass('searchbox__result-list') }>
+  <ul if={ results.length } class={ getClass('result-list') }>
     <li each={ results }
-      class={ parent.opts.getclass('searchbox__result-list-item') }
+      class={ parent.getClass('result-list__item') }
       onclick={ handleClick }>
       { name }
       <span>{ plz }, { states[state] }</span>

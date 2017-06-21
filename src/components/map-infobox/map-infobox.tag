@@ -1,14 +1,14 @@
 import {states} from '../../data/entry.js'
 import './history-chart/history-chart.tag'
 
-<map-infobox if={ data } class="{ opts.getclass('infobox') } { -visible: visible }" style={ position }>
+<map-infobox if={ data } class="{ getClass() } { -visible: visible }" style={ position }>
 
-  <button class={ opts.getclass('infobox__close-btn') } aria-label='Close' onclick={ close }>x</button>
+  <button class={ getClass('close-btn') } aria-label='Close' onclick={ close }>x</button>
 
-  <h3 class={ opts.getclass('infobox__title') }>{ data.gen }</h3>
-  <span class={ opts.getclass('infobox__state') }>{ states[data.s] }</span>
+  <h3 class={ getClass('title') }>{ data.gen }</h3>
+  <span class={ getClass('state') }>{ states[data.s] }</span>
 
-  <section class={ opts.getclass('infobox__section') } onclick={ close }>
+  <section class={ getClass('section') } onclick={ close }>
     <p>Anteil der Minijobber</p>
     <dl>
       <dt>{ data.pwi }&nbsp;%</dt>
@@ -24,8 +24,8 @@ import './history-chart/history-chart.tag'
     </dl>
   </section>
 
-  <section class={ opts.getclass('infobox__section') } onclick={ close }>
-    <history-chart getclass={ opts.getclass } config={ opts.config.historyChart } data={ data } />
+  <section class={ getClass('section') } onclick={ close }>
+    <history-chart ref='history-chart' config={ opts.config.historyChart } data={ data } />
   </section>
 
   this.visible = false

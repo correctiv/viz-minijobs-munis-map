@@ -3,7 +3,7 @@ import {toDate} from './date.js'
 
 export default ({
   element,
-  getclass
+  getClass
 }, {
   width,
   height,
@@ -28,7 +28,7 @@ export default ({
   const g = d3.select(element).append('svg')
       .attr('preserveAspectRatio', 'xMinYMin meet')
       .attr('viewBox', `0 0 ${width + left + right} ${height + top + bottom}`)
-      .attr('class', getclass('history-chart__svg'))
+      .attr('class', getClass('svg'))
     .append('g')
       .attr('transform', `translate(${margin.left},${margin.top})`)
 

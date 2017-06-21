@@ -2,7 +2,7 @@ import initMapbox from './init_mapbox.js'
 
 <mapbox-map>
 
-  <div id={ config.mapId } ref={ config.mapId } class={ opts.config.util.getClass('mapbox-container') }></div>
+  <div id={ config.mapId } ref={ config.mapId } class={ getClass('mapbox-container') }></div>
 
   this.config = this.opts.config.mapbox
   this.currentMarker = null

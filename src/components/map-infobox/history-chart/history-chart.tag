@@ -3,8 +3,8 @@ import drawLine from './draw_line.js'
 import updateLine from './update_line.js'
 import transformData from './transform_data.js'
 
-<history-chart class={ opts.getclass('history-chart') }>
-  <h4 class={ opts.getclass('history-chart__title') }>Entwicklung seit 2003</h4>
+<history-chart class={ getClass() }>
+  <h4 class={ getClass('title') }>Entwicklung seit 2003</h4>
 
   this.drawed = false  // identify if we already drawed a line
   this.ags = null  // remember which city we currently show
@@ -12,7 +12,7 @@ import transformData from './transform_data.js'
   this.on('mount', () => {
     this.chart = initChart({
       element: this.root,
-      getclass: this.opts.getclass,
+      getClass: this.getClass,
     }, this.opts.config)
   })
 
