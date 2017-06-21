@@ -3,7 +3,7 @@ import './history-chart/history-chart.tag'
 
 <map-infobox if={ data } class="{ opts.getclass('infobox') } { -visible: visible }" style={ position }>
 
-  <button class="btn { opts.getclass('infobox__close-btn') }" onclick={ close }>[x]</button>
+  <button class={ opts.getclass('infobox__close-btn') } aria-label='Close' onclick={ close }>x</button>
 
   <h3 class={ opts.getclass('infobox__title') }>{ data.gen }</h3>
   <span class={ opts.getclass('infobox__state') }>{ states[data.s] }</span>
