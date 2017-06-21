@@ -25,7 +25,6 @@ import './history-chart/history-chart.tag'
   </section>
 
   <section class={ opts.getclass('infobox__section') } onclick={ close }>
-    <p>Entwicklung seit 2003</p>
     <history-chart getclass={ opts.getclass } config={ opts.config.historyChart } data={ data } />
   </section>
 

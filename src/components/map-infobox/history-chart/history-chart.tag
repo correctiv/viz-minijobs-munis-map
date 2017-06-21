@@ -4,6 +4,7 @@ import updateLine from './update_line.js'
 import transformData from './transform_data.js'
 
 <history-chart class={ opts.getclass('history-chart') }>
+  <h4 class={ opts.getclass('history-chart__title') }>Entwicklung seit 2003</h4>
 
   this.drawed = false  // identify if we already drawed a line
   this.ags = null  // remember which city we currently show
