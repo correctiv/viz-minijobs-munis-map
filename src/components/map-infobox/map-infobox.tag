@@ -8,7 +8,7 @@ import './history-chart/history-chart.tag'
   <h3 class={ getClass('title') }>{ data.gen }</h3>
   <span class={ getClass('state') }>{ states[data.s] }</span>
 
-  <section class={ getClass('section') } onclick={ close }>
+  <section class={ getClass('section') }>
     <p>Anteil der Minijobber</p>
     <dl>
       <dt>{ data.pwi }&nbsp;%</dt>
@@ -24,7 +24,7 @@ import './history-chart/history-chart.tag'
     </dl>
   </section>
 
-  <section class={ getClass('section') } onclick={ close }>
+  <section class={ getClass('section') }>
     <history-chart ref='history-chart' config={ opts.config.historyChart } data={ data } />
   </section>
 
