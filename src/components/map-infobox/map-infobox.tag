@@ -31,14 +31,24 @@ import './history-chart/history-chart.tag'
   this.visible = false
   this.data = {}
   this.states = states
+  this.ags = null  // remember which city we currently show
 
   riot.control.on(riot.EVT.updateInfobox, ({data, point}) => {
-    this.update({
-      point,
-      data,
-      visible: true,
-      position: this._getPosition(point)
-    })
+    if (this._doUpdate(data, this)) {
+      // update position & data
+      this.update({
+        point,
+        data,
+        visible: true,
+        position: this._getPosition(point)
+      })
+    } else {
+      // only update position
+      this.update({
+        point,
+        position: this._getPosition(point)
+      })
+    }
   })
 
   riot.control.on(riot.EVT.hideInfobox, () => {
@@ -58,8 +68,17 @@ import './history-chart/history-chart.tag'
     const width = riot.STORE.mapbox.containerWidth
     const bigger = riot.STORE.breakpoint !== 'small'
     return bigger ?
-      `top:${y < 350 ? y + 30 : y - 330}px;left:${width - 350 < x ? x - 330 : x + 30}px;` :
+      `top:${y < 430 ? y + 20 : y - 420}px;left:${width - 350 < x ? x - 330 : x + 30}px;` :
       'bottom:10px;right:10px;left:10px;'
+  }
+
+  this._doUpdate = ({ags}, that) => {
+    if (that.ags === ags) {
+      return false
+    } else {
+      that.ags = ags
+      return true
+    }
   }
 
 </map-infobox>

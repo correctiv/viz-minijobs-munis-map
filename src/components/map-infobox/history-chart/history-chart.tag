@@ -7,6 +7,7 @@ import transformData from './transform_data.js'
   <h4 class={ getClass('title') }>Entwicklung seit 2003</h4>
 
   this.drawed = false  // identify if we already drawed a line
+  this._doUpdate = this.parent._doUpdate
   this.ags = null  // remember which city we currently show
 
   this.on('mount', () => {
@@ -17,7 +18,7 @@ import transformData from './transform_data.js'
   })
 
   this.on('update', () => {
-    if (this._doUpdate(this.opts.data)) {
+    if (this._doUpdate(this.opts.data, this)) {
       const {g, line} = this.chart
       const data = transformData(this.opts.data, this.opts.config.keys)
       if (data) {
@@ -30,14 +31,5 @@ import transformData from './transform_data.js'
       }
     }
   })
-
-  this._doUpdate = ({ags}) => {
-    if (this.ags === ags) {
-      return false
-    } else {
-      this.ags = ags
-      return true
-    }
-  }
 
 </history-chart>
