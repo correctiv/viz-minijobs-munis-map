@@ -1,3 +1,4 @@
+import mapboxgl from 'mapbox-gl'
 import initMapbox from './init_mapbox.js'
 
 <mapbox-map>
@@ -18,7 +19,7 @@ import initMapbox from './init_mapbox.js'
 
   riot.control.on(riot.EVT.mapJumpTo, ({lat, lon, data}) => {
     this.map.easeTo({center: [lon, lat], zoom: 8})
-    // this._setMarker({lat, lon}, data.name)
+    this._setMarker({lon, lat}, data.name)
   })
 
   riot.control.on(riot.EVT.windowResize, () => {
@@ -27,16 +28,15 @@ import initMapbox from './init_mapbox.js'
 
   riot.control.on(riot.EVT.mapClearMarker, () => this._clearMarker())
 
-  this._setMarker = ({lat, lon}, name) => {
+  this._setMarker = ({lon, lat}, name) => {
     const m = this.currentMarker
-    if (m) m.setLatLng({lat, lon})
-    else this.currentMarker = L.marker({lat, lon}).addTo(this.map)
-    this.currentMarker.bindPopup(name).openPopup()
+    if (m) m.setLngLat([lon, lat])
+    else this.currentMarker = new mapboxgl.Marker().setLngLat([lon, lat]).addTo(this.map)
   }
 
   this._clearMarker = () => {
     const m = this.currentMarker
-    m && this.map.removeLayer(m)
+    m && m.remove()
     this.currentMarker = null
   }
 
