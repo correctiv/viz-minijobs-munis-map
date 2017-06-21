@@ -4,7 +4,6 @@ import updateLine from './update_line.js'
 import transformData from './transform_data.js'
 
 <history-chart class={ getClass() }>
-  <h4 class={ getClass('title') }>Entwicklung seit 2003</h4>
 
   this.drawed = false  // identify if we already drawed a line
   this._doUpdate = this.parent._doUpdate

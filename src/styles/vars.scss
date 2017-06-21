@@ -38,11 +38,12 @@ $gray: #9c9c9c;
 $gray-dark: #555555;
 $gray-darker: #4d4d4d;
 
-$total-color: brown;
-$exclusive-color: red;
-$inclusive-color: steelblue;
+$total-color: $purple;
+$exclusive-color: $purple-dark;
+$inclusive-color: $blue-dark;
 
 // font
-$font-neuzeit: 'Neuzeit','Helvetica','Arial',sans-serif;
+$font-neuzeit: 'Neuzeit','Neuzeit Grotesk','Helvetica','Arial',sans-serif;
+$font-neuzeit-cond: 'Neuzeit-Condensed','Neuzeit Grotesk Cond','Helvetica','Arial',sans-serif;
 
 $transition-duration: .3s;

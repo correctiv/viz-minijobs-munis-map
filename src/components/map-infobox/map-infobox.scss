@@ -11,26 +11,62 @@
 
   position: absolute;
   background-color: $white-transp;
-  padding: 15px;
   z-index: 1111;
+  box-shadow: 0px 0px 2px $gray;
 
   @include bp-sm {
     width: 300px;
+    border: none;
+  }
+
+  .-clear- {
+    display: block;
+    clear: both;
+  }
+
+  &__header, &__section {
+    padding: 15px;
+  }
+
+  &__header {
+    background-color: $gray-lighter;
+
+    &__section {
+      @include bp-xs {
+        width: 50%;
+        float: left;
+      }
+
+      @include bp-sm {
+        width: 100%;
+        float: none;
+      }
+    }
   }
 
   &__title {
-    margin: 0;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 28px;
     font-family: $font-neuzeit;
   }
 
   &__state {
     color: $gray-dark;
     font-size: 14px;
+    font-family: $font-neuzeit-cond;
+    text-transform: uppercase;
+  }
+
+  &__population, &__f-ratio {
+    font-size: 14px;
+    display: block;
   }
 
   &__section {
     display: block;
     width: 100%;
+    border-top: dashed 1px $gray-light;
 
     @include bp-xs {
       float: left;
@@ -41,46 +77,63 @@
       float: none;
       width: 100%;
     }
-  }
 
-  p {
-    padding-bottom: 0;
-  }
+    &--last {
+      @include bp-xs {
+        padding-left: 0;
+      }
 
-  dl {
-    display: block;
-    padding-right: 10px;
-    // width: 33%;
-    float: left;
-  }
-
-  dt {
-    padding-top: .7em;
-    font-size: 20px;
-    line-height: 1em;
-    font-family: $font-neuzeit;
-    font-weight: bold;
-  }
-
-  dd {
-    font-weight: normal;
-    line-height: 1.2em;
-
-    &.badge {
-      padding: 3px 5px 3px 5px;
-      border-radius: 3px;
+      @include bp-sm {
+        padding-left: 15px;
+      }
     }
 
-    &.badge--t {
-      background-color: $total-color;
+    &__title {
+      margin: 0;
+      font-family: $font-neuzeit-cond;
+      text-transform: uppercase;
+      font-size: 16px;
     }
 
-    &.badge--e {
-      background-color: $exclusive-color;
+    dl {
+      display: block;
+      padding-right: 10px;
+      margin-bottom: 0;
+      float: left;
+
+      @include bp-sm {
+        padding-right: 20px;
+      }
     }
 
-    &.badge--i {
-      background-color: $inclusive-color;
+    dt {
+      padding-top: .7em;
+      font-size: 20px;
+      line-height: 1em;
+      font-family: $font-neuzeit;
+      font-weight: bold;
+    }
+
+    dd {
+      font-weight: normal;
+      line-height: 1.2em;
+
+      &.badge {
+        padding: 3px 5px 3px 5px;
+        border-radius: 3px;
+      }
+
+      &.badge--t {
+        background-color: $total-color;
+      }
+
+      &.badge--e {
+        background-color: $exclusive-color;
+      }
+
+      &.badge--i {
+        background-color: $inclusive-color;
+      }
     }
   }
 
@@ -104,7 +157,5 @@
       border: 0;
       padding: 0;
     }
-
-    @include hide-bigger();
   }
 }

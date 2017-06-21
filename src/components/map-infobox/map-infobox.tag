@@ -5,11 +5,20 @@ import './history-chart/history-chart.tag'
 
   <button class={ getClass('close-btn') } aria-label='Close' onclick={ close }>x</button>
 
-  <h3 class={ getClass('title') }>{ data.gen }</h3>
-  <span class={ getClass('state') }>{ states[data.s] }</span>
+  <header class={ getClass('header') }>
+    <section class={ getClass('header__section') }>
+      <span class={ getClass('state') }>{ states[data.s] }</span>
+      <h3 class={ getClass('title') }>{ data.gen }</h3>
+    </section>
+    <section class={ getClass('header__section') }>
+      <span class={ getClass('population') }><strong>{ data.t }</strong>&nbsp;Einwohner</span>
+      <span class={ getClass('f-ratio') }><strong>{ data.fRatio }&nbsp;%</strong>&nbsp;Frauenanteil</span>
+    </section>
+    <span class="-clear-"></span>
+  </header>
 
   <section class={ getClass('section') }>
-    <p>Anteil der Minijobber</p>
+    <h4 class={ getClass('section__title') }>Anteil der Minijobber</h4>
     <dl>
       <dt>{ data.pwi }&nbsp;%</dt>
       <dd class="badge badge--t">Gesamt</dd>
@@ -20,11 +29,13 @@ import './history-chart/history-chart.tag'
     </dl>
     <dl>
       <dt>{ data.pwn }&nbsp;%</dt>
-      <dd class="badge badge--i">im Nebenjob</dd>
+      <dd class="badge badge--i">Nebenjob</dd>
     </dl>
+    <span class="-clear-"></span>
   </section>
 
-  <section class={ getClass('section') }>
+  <section class={ getClass('section') + ' ' + getClass('section--last') }>
+    <h4 class={ getClass('section__title') }>Entwicklung seit 2003</h4>
     <history-chart ref='history-chart' config={ opts.config.historyChart } data={ data } />
   </section>
 
@@ -36,6 +47,7 @@ import './history-chart/history-chart.tag'
   riot.control.on(riot.EVT.updateInfobox, ({data, point}) => {
     if (this._doUpdate(data, this)) {
       // update position & data
+      data.fRatio = Math.round(data.f / data.t * 1000) / 10
       this.update({
         point,
         data,
@@ -65,11 +77,12 @@ import './history-chart/history-chart.tag'
   this.close = () => this.update({visible: false})
 
   this._getPosition = ({x, y}) => {
+    [x, y] = [Math.round(x), Math.round(y)]
     const width = riot.STORE.mapbox.containerWidth
     const bigger = riot.STORE.breakpoint !== 'small'
     return bigger ?
-      `top:${y < 430 ? y + 20 : y - 420}px;left:${width - 350 < x ? x - 330 : x + 30}px;` :
-      'bottom:10px;right:10px;left:10px;'
+      `top:${y < 360 ? y + 30 : y - 460}px;left:${width - 320 < x ? x - 320 : x + 20}px;` :
+      'top:50px;bottom:10px;right:10px;left:10px;'
   }
 
   this._doUpdate = ({ags}, that) => {
