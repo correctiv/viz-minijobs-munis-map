@@ -3,22 +3,24 @@
   clear: both;  // because of `dl` above
   display: block;
   width: 100%;
-  height: 100px;
+  height: 130px;
 
   &__svg {
 
     .line {
       fill: none;
+      @include transition(all, $transition-duration);
+      stroke-width: 2px;
 
-      &--t {
+      &--pwi_h {
         stroke: $total-color;
       }
 
-      &--e {
+      &--pwa_h {
         stroke: $exclusive-color;
       }
 
-      &--i {
+      &--pwn_h {
         stroke: $inclusive-color;
       }
     }

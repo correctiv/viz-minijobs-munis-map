@@ -12,18 +12,23 @@
     "mapId": "mj-map",
     "labelUrl": "http://api.mapbox.com/styles/v1/simonwoerpel/cj0xv72fk00wi2rqp74nln4ln/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1Ijoic2ltb253b2VycGVsIiwiYSI6ImNqMHA0cGY4eDAwd3QzMm1yZm9yY3c0cWUifQ.78weiiM4vcLanNNg-v7EBA",
     "layers": {
-      "Wohnort insgesamt": "mapbox://styles/simonwoerpel/cj3oa7i5q000c2spone0levze"
+      "Wohnort insgesamt": "mapbox://styles/simonwoerpel/cj4601fvb0uqy2rqo4ocr2o3n"
     },
     "bBox": [[47.27, 5.87], [55.1, 15.04]],
     "center": [10.4, 51.4],
-    "initZoom": 6,
+    "initZoom": 7,
     "maxZoom": 12,
     "minZoom": 6,
     "attribution": "&copy; <a href='http://osm.org/copyright'>OpenStreetMap</a> contributors"
   },
   "historyChart": {
+    "keys": [
+      "pwi_h",
+      "pwa_h",
+      "pwn_h"
+    ],
     "width": 230,
-    "height": 70,
+    "height": 100,
     "margin": {
       "top": 10,
       "right": 20,

@@ -3,8 +3,7 @@ import {toDate} from './date.js'
 
 export default ({
   element,
-  getclass,
-  data
+  getclass
 }, {
   width,
   height,
@@ -13,7 +12,6 @@ export default ({
   yExtent,
   yTickValues
 }) => {
-
   const x = d3.scaleTime().rangeRound([0, width])
     .domain([toDate(xExtent[0]), toDate(xExtent[1])])
   const y = d3.scaleLinear().rangeRound([height, 0])
@@ -22,9 +20,11 @@ export default ({
   const line = d3.line()
     .x(d => x(d.year))
     .y(d => y(d.value))
+    .defined(d => !isNaN(d.value))
     // .curve(d3.curveStep())
 
   const {top, right, bottom, left} = margin
+
   const g = d3.select(element).append('svg')
       .attr('preserveAspectRatio', 'xMinYMin meet')
       .attr('viewBox', `0 0 ${width + left + right} ${height + top + bottom}`)
@@ -46,12 +46,6 @@ export default ({
       .attr('dy', '0.71em')
       .style('text-anchor', 'end')
       .text('Anteil in %')
-
-  g.selectAll('.line')
-      .data(data)
-    .enter().append('path')
-      .attr('class', d => `line line--${d.id}`)
-      .attr('d', d => line(d.values))
 
   return {g, line}
 }

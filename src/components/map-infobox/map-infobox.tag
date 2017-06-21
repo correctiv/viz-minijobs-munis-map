@@ -1,12 +1,12 @@
-
-
+import {states} from '../../data/entry.js'
 import './history-chart/history-chart.tag'
 
-<map-infobox class="{ opts.getclass('infobox') } { -visible: visible }" style={ position }>
+<map-infobox if={ data } class="{ opts.getclass('infobox') } { -visible: visible }" style={ position }>
 
   <button class="btn { opts.getclass('infobox__close-btn') }" onclick={ close }>[x]</button>
 
-  <h3 class={ opts.getclass('infobox__title') }>{ data.name }</h3>
+  <h3 class={ opts.getclass('infobox__title') }>{ data.gen }</h3>
+  <span class={ opts.getclass('infobox__state') }>{ states[data.s] }</span>
 
   <section class={ opts.getclass('infobox__section') } onclick={ close }>
     <p>Anteil der Minijobber</p>
@@ -26,11 +26,12 @@ import './history-chart/history-chart.tag'
 
   <section class={ opts.getclass('infobox__section') } onclick={ close }>
     <p>Entwicklung seit 2003</p>
-    <history-chart getclass={ opts.getclass } config={ opts.config.historyChart } />
+    <history-chart getclass={ opts.getclass } config={ opts.config.historyChart } data={ data } />
   </section>
 
   this.visible = false
   this.data = {}
+  this.states = states
 
   riot.control.on(riot.EVT.updateInfobox, ({data, point}) => {
     this.update({

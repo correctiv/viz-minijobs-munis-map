@@ -19,6 +19,8 @@ export default ({
     container: mapId,
     center,
     zoom: initZoom,
+    // maxZoom,
+    // minZoom,
     style
   })
 

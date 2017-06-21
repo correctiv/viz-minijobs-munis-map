@@ -4,7 +4,7 @@ export {
 } from 'd3-axis'
 
 export {
-  curveStep,
+  // curveStep,
   line
 } from 'd3-shape'
 
