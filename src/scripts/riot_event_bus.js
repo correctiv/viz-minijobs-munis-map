@@ -1,3 +1,5 @@
+import * as d3 from './lib/d3.js'
+
 // store
 const S = {
   supported: false,
@@ -5,7 +7,6 @@ const S = {
     map: null,
     containerWidth: null
   },
-  infoboxQueue: null,
   breakpoint: null,
   getActiveBreakpoint: null
 }
@@ -22,30 +23,18 @@ const E = {
   clearResults: 'cr',
   windowResize: 'wr',
   breakpointChanged: 'bc',
+  loaded: 'l',
+  unsupported: 'us'
 }
 
 // event bus
 const C = riot.observable()
 
-// event chaining
+// mouseover event chaining
 C.on(E.mapMouseOver, data => {
   // C.trigger(E.clearResults)  FIXME
   C.trigger(E.updateInfobox, data)
   C.trigger(E.mapClearMarker)
-})
-
-// on jumpTo, wait for map to move end
-C.on(E.mapJumpTo, data => {
-  S.infoboxQueue = data
-})
-
-C.on(E.mapMoveEnd, () => {
-  if (S.infoboxQueue) {
-    const data = S.infoboxQueue
-    data.containerPoint = data.getContainerPoint()
-    C.trigger(E.updateInfobox, data)
-    S.infoboxQueue = null
-  }
 })
 
 // trigger actual breakpoint
@@ -55,6 +44,28 @@ C.on(E.windowResize, width => {
     S.breakpoint = bp
     C.trigger(E.breakpointChanged, bp)
   }
+})
+
+// unsupported extra data loading
+C.on(E.unsupported, () => {
+  d3.csv('./data/unsupported_data.csv', data => {
+    S.unsupportedData = {}
+    data.map(d => {
+      S.unsupportedData[d.ags] = d
+    })
+    C.trigger(E.unsupportedDataLoaded)
+  })
+
+  // forward jumpto event to infobox
+  C.on(E.mapJumpTo, ({data}) => {
+    const _data = S.unsupportedData[data.ags]
+    _data.gen = data.name
+    _data.s = data.state
+    C.trigger(E.updateInfobox, {
+      data: _data,
+      point: {}
+    })
+   })
 })
 
 // make available

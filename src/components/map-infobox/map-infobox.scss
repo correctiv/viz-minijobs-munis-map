@@ -5,11 +5,23 @@
   // FIXME
   // @include visible(&);
   display: none;
+  // width: 0;
+  // display: block;
+  // height: 0;
+  // overflow: hidden;
+  // opacity: 0;
+  // @include transition(opacity, $transition-duration);
+
   &.-visible {
     display: block;
+    // min-height: 400px;
+    // opacity: 1;
+    // @include transition(opacity, $transition-duration);
   }
 
   position: absolute;
+  top: 50px;
+  right: 10px;
   background-color: $white-transp;
   z-index: 1111;
   box-shadow: $box-shadow;
@@ -137,25 +149,5 @@
     }
   }
 
-  &__close-btn {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    text-align: right;
-    background: none repeat scroll 0 0 transparent;
-    border: medium none;
-    border-spacing: 0;
-    margin: 0;
-    padding: 0;
-    font-family: $font-neuzeit;
-    font-size: 25px;
-    line-height: 25px;
-    width: 20px;
-    height: 20px;
-
-    &::-moz-focus-inner {
-      border: 0;
-      padding: 0;
-    }
-  }
+  &__close-btn { @include close-btn; }
 }

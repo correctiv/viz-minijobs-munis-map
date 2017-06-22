@@ -4,6 +4,10 @@
 // base
 @import './base.scss';
 @import './figure_credits.scss';
+@import './loaded.scss';
+
+// reusable component snippets
+@import './components.scss';
 
 // components
 @import '../components/mapbox-map/mapbox-map.scss';

@@ -1,7 +1,7 @@
 import {years} from './date.js'
 
 export default (data, keys) => {
-  if (data && keys) {
+  if (Object.keys(data).length > 0 && keys) {
     return keys.map(k => {
       return {
         id: k,

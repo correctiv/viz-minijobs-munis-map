@@ -25,3 +25,7 @@ export {
 export {
   csvParse
 } from 'd3-dsv'
+
+export {
+  csv
+} from 'd3-request'

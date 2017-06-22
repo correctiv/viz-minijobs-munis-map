@@ -3,7 +3,7 @@ import './history-chart/history-chart.tag'
 
 <map-infobox if={ data } class="{ getClass() } { -visible: visible }" style={ position }>
 
-  <button class={ getClass('close-btn') } aria-label='Close' onclick={ close }>x</button>
+  <button class={ getClass('close-btn') } aria-label='Close' onclick={ close }></button>
 
   <header class={ getClass('header') }>
     <section class={ getClass('header__section') }>
@@ -34,11 +34,13 @@ import './history-chart/history-chart.tag'
     <span class="-clear-"></span>
   </section>
 
-  <section class={ getClass('section') + ' ' + getClass('section--last') }>
+  <section if={ supported } class={ getClass('section') + ' ' + getClass('section--last') }>
     <h4 class={ getClass('section__title') }>Entwicklung seit 2003</h4>
     <history-chart ref='history-chart' config={ opts.config.historyChart } data={ data } />
   </section>
+  <span class="-clear-"></span>
 
+  this.supported = riot.STORE.supported  // disable history chart on no mapbox gl
   this.visible = false
   this.data = {}
   this.states = states
@@ -80,9 +82,9 @@ import './history-chart/history-chart.tag'
     [x, y] = [Math.round(x), Math.round(y)]
     const width = riot.STORE.mapbox.containerWidth
     const bigger = riot.STORE.breakpoint !== 'small'
-    return bigger ?
+    return bigger && this.supported ?
       `top:${y < 360 ? y + 30 : y - 460}px;left:${width - 320 < x ? x - 320 : x + 20}px;` :
-      'top:50px;bottom:10px;right:10px;left:10px;'
+        !bigger ?  'top:50px;bottom:10px;right:10px;left:10px;' : null
   }
 
   this._doUpdate = ({ags}, that) => {

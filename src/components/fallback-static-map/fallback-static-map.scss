@@ -1,9 +1,42 @@
 @include cssPrefix('fallback-static-map') {
+  position: relative;
   display: block;
+  padding-top: 40px;  // searchbox
   width: 100%;
 
   &__placeholder-img {
     display: block;
     width: 100%;
+  }
+
+  &__messagebox {
+    display: none;
+
+    &.-visible {
+      display: block;
+      position: absolute;
+      top: 30%;
+      left: 10%;
+      right: 10%;
+      margin: 0 auto;
+      background-color: rgba(255, 255, 255, .8);
+      box-shadow: $box-shadow;
+      padding: 20px;
+      text-align: center;
+      font-size: 80%;
+
+      @include bp-sm {
+        left: 30%;
+        right: 30%;
+      }
+    }
+
+    &__title {
+      margin: 0;
+      font-family: $font-neuzeit;
+      font-size: 20px;
+    }
+
+    &__close-btn { @include close-btn; }
   }
 }

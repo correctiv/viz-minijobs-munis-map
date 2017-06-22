@@ -19,13 +19,21 @@ export default ({
     container: mapId,
     center,
     zoom: initZoom,
-    // maxZoom,
-    // minZoom,
     style
   })
+    .setMaxZoom(maxZoom)
+    .setMinZoom(minZoom)
+    .setMaxBounds(bBox)
 
-  // map.on('zoomend', e => riot.control.trigger(riot.EVT.mapZoomEnd, e))
-  // map.on('moveend', e => riot.control.trigger(riot.EVT.mapMoveEnd, e))
+  // add label layer
+  // map.addLayer({
+  //   'id': 'labels',
+  //   'source': {
+  //     'type': 'vector',
+  //     'url': labelUrl
+  //   }
+  // })
+
   const triggerMouseOver = ({point}) => {
     const feature = map.queryRenderedFeatures(point)[0]
     feature && riot.control.trigger(riot.EVT.mapMouseOver, {
