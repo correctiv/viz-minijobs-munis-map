@@ -1,20 +1,29 @@
+import '../fallback-static-map/fallback-static-map.tag'
 import mapboxgl from 'mapbox-gl'
 import initMapbox from './init_mapbox.js'
 
 <mapbox-map>
 
-  <div id={ config.mapId } ref={ config.mapId } class={ getClass('mapbox-container') }></div>
+  <div if={ supported } id={ config.mapId } ref={ config.mapId } class={ getClass('mapbox-container') }></div>
+  <fallback-static-map if={ !supported } ref='fallback-static-map' />
 
   this.config = this.opts.config.mapbox
   this.currentMarker = null
+  this.supported = false
+
+  this.on('before-mount', () => {
+    this.supported = riot.STORE.supported = mapboxgl.supported()
+  })
 
   this.on('mount', () => {
-    this.map = initMapbox(this.config)
-    // this.map.fitBounds(this.config.bBox)
+    if (this.supported) {
+      this.map = initMapbox(this.config)
+      // this.map.fitBounds(this.config.bBox)
 
-    // have map stuff available
-    riot.STORE.mapbox.containerWidth = this._getContainerWidth()
-    riot.STORE.mapbox.map = this.map
+      // have map stuff available
+      riot.STORE.mapbox.containerWidth = this._getContainerWidth()
+      riot.STORE.mapbox.map = this.map
+    }
   })
 
   riot.control.on(riot.EVT.mapJumpTo, ({lat, lon, data}) => {

@@ -1,5 +1,6 @@
 // store
 const S = {
+  supported: false,
   mapbox: {
     map: null,
     containerWidth: null

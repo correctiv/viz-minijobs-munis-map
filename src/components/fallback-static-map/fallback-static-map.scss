@@ -1,0 +1,9 @@
+@include cssPrefix('fallback-static-map') {
+  display: block;
+  width: 100%;
+
+  &__placeholder-img {
+    display: block;
+    width: 100%;
+  }
+}
