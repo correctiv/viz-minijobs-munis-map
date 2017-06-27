@@ -43,10 +43,8 @@ export default ({
   }
 
   map.on('mousemove', e => triggerMouseOver(e))
-  // map.on('click', e => triggerMouseOver(e))
 
   // controls
-  // map.addControl(new mapboxgl.FullscreenControl(), 'bottom-right')
   map.addControl(new mapboxgl.NavigationControl(), 'top-left')
 
   return map

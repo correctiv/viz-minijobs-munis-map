@@ -15,8 +15,6 @@ const S = {
 const E = {
   mapMouseOver: 'mmo',
   mapJumpTo: 'mjt',
-  mapZoomEnd: 'mze',
-  mapMoveEnd: 'mme',
   mapClearMarker: 'mcm',
   updateInfobox: 'uib',
   hideInfobox: 'hib',

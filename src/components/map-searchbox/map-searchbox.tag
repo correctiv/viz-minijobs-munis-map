@@ -1,5 +1,4 @@
 import {search, states} from '../../data/entry.js'
-import getJumpToItem from './get_jumpto_item.js'
 
 <map-searchbox class={ getClass() }>
 
@@ -49,7 +48,7 @@ import getJumpToItem from './get_jumpto_item.js'
   })
 
   this._jumpTo = data => {
-    riot.control.trigger(riot.EVT.mapJumpTo, getJumpToItem(data))
+    riot.control.trigger(riot.EVT.mapJumpTo, data)
   }
 
 </map-searchbox>
