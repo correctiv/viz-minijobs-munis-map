@@ -12,7 +12,7 @@ import './history-chart/history-chart.tag'
     </section>
     <section class={ getClass('header__section') }>
       <span class={ getClass('population') }><strong>{ data.t }</strong>&nbsp;Einwohner</span>
-      <span class={ getClass('f-ratio') }><strong>{ data.fRatio }&nbsp;%</strong>&nbsp;Frauenanteil</span>
+      <span class={ getClass('f-ratio') }>davon <strong>{ data.fRatio }&nbsp;%</strong>&nbsp;Frauen</span>
     </section>
     <span class="-clear-"></span>
   </header>
@@ -20,16 +20,16 @@ import './history-chart/history-chart.tag'
   <section class={ getClass('section') }>
     <h4 class={ getClass('section__title') }>Anteil der Minijobber</h4>
     <dl>
-      <dt>{ data.pwi }&nbsp;%</dt>
-      <dd class="badge badge--t">Gesamt</dd>
-    </dl>
-    <dl>
       <dt>{ data.pwa }&nbsp;%</dt>
       <dd class="badge badge--e">ausschließlich</dd>
     </dl>
     <dl>
       <dt>{ data.pwn }&nbsp;%</dt>
       <dd class="badge badge--i">Nebenjob</dd>
+    </dl>
+    <dl>
+      <dt>{ data.pwi }&nbsp;%</dt>
+      <dd class="badge badge--t">Gesamt</dd>
     </dl>
     <span class="-clear-"></span>
   </section>
