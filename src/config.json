@@ -14,11 +14,11 @@
     "layers": {
       "Wohnort insgesamt": "mapbox://styles/simonwoerpel/cj4601fvb0uqy2rqo4ocr2o3n"
     },
-    "bBox": [10.561,50.938,13.187,53.041],
+    "bBox": [5.9,47.3,15.0,55.0],
     "center": [11.920, 52.183],
-    "initZoom": 7,
+    "initZoom": 6,
     "maxZoom": 12,
-    "minZoom": 7,
+    "minZoom": 6,
     "attribution": "&copy; <a href='http://osm.org/copyright'>OpenStreetMap</a> contributors"
   },
   "historyChart": {
