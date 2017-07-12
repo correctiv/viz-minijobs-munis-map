@@ -6,3 +6,23 @@
 
 }
 
+// if use for hotspots viz:
+@include cssPrefix('hotspots-container') {
+  display: block;
+  width: 100%;
+
+  @include bp-sm {
+    width: 300px;
+    position: absolute;
+    left: 0;
+  }
+}
+
+@include cssPrefix('map-container') {
+  display: block;
+  width: 100%;
+
+  @include bp-sm {
+    padding-left: 300px;
+  }
+}

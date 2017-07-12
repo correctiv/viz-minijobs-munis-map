@@ -19,9 +19,9 @@ import initMapbox from './init_mapbox.js'
     this.map.on('load', () => riot.control.trigger(riot.EVT.loaded))
   })
 
-  riot.control.on(riot.EVT.mapJumpTo, ({lat, lon}) => {
-    this.map.easeTo({center: [lat, lon], zoom: 8})
-    this._setMarker({lat, lon})
+  riot.control.on(riot.EVT.mapJumpTo, ({lon, lat}) => {
+    this.map.flyTo({center: [lon, lat], zoom: 8})
+    this._setMarker({lon, lat})
   })
 
   riot.control.on(riot.EVT.windowResize, () => {
@@ -30,10 +30,10 @@ import initMapbox from './init_mapbox.js'
 
   riot.control.on(riot.EVT.mapClearMarker, () => this._clearMarker())
 
-  this._setMarker = ({lat, lon}) => {
+  this._setMarker = ({lon, lat}) => {
     const m = this.currentMarker
-    if (m) m.setLngLat([lat, lon])
-    else this.currentMarker = new mapboxgl.Marker().setLngLat([lat, lon]).addTo(this.map)
+    if (m) m.setLngLat([lon, lat])
+    else this.currentMarker = new mapboxgl.Marker().setLngLat([lon, lat]).addTo(this.map)
   }
 
   this._clearMarker = () => {

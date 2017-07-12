@@ -1,0 +1,39 @@
+@include cssPrefix('hotspot-item') {
+  display: block;
+  width: 100%;
+
+  &__header {
+    cursor: pointer;
+    padding: 10px 15px 0px 15px;
+    background-color: $gray-lighter;
+    @include transition(background-color $transition-duration);
+
+    &.-active, &:hover {
+      background-color: $gray-light;
+      @include transition(background-color $transition-duration);
+    }
+  }
+
+  &__title {
+    margin: 0;
+    font-size: 20px;
+    font-family: $font-neuzeit;
+  }
+
+  &__state {
+    color: $gray-dark;
+    font-size: 14px;
+    font-family: $font-neuzeit-cond;
+    text-transform: uppercase;
+  }
+
+  &__section {
+    display: none;
+    padding: 15px;
+    border: 1px solid $gray-light;
+
+    &.-active {
+      display: block;
+    }
+  }
+}

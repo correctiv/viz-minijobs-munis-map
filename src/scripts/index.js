@@ -25,4 +25,17 @@ riot.mixin(getClass(config.global.cssNamespace))
 
 // mount app
 import '../components/app.tag'
-riot.mount('[data-riot-mount="cor-mj-munis-map"]', 'cor-mj-munis-map', {config})
+import '../components/hotspots.tag'
+
+import * as d3 from './lib/d3.js'
+
+const selector = '[data-riot-mount="cor-mj-munis-map"]'
+const container = d3.select(selector)
+
+if (container.node()) {
+  riot.STORE.isHotspots = config.isHotspots = !!+container.node().dataset.isHotspots
+  riot.mount(selector, 'cor-mj-munis-map', {config})
+  if (config.isHotspots) {
+    riot.mount('[data-riot-mount="cor-mj-munis-hotspots"]', 'cor-mj-munis-hotspots')
+  }
+}

@@ -12,7 +12,8 @@ export default ({
   labels,
   sources,
   stops,
-  colors
+  colors,
+  property
 }) => {
 
   mapboxgl.accessToken = accessToken
@@ -36,7 +37,7 @@ export default ({
       sources,
       stops,
       colors,
-      property: 'pwa',
+      property,
       maxZoom
     })
 
@@ -49,6 +50,9 @@ export default ({
     }
 
     map.on('mousemove', e => triggerMouseOver(e))
+
+    // hide infobox if we are in hotspots mode
+    riot.STORE.isHotspots && map.on('mouseout', () => riot.control.trigger(riot.EVT.hideInfobox))
   })
 
 

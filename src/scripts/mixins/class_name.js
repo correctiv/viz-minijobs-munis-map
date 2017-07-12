@@ -13,7 +13,7 @@
 export default cssNamespace => {
   return {
     getClass: function(name) {
-      const ref = this.opts.ref
+      const ref = this.opts.ref || this.opts.css
       const part = ref ? `${cssNamespace}-${ref}` : false
       return name ?
         part ? `${part}__${name}` : `${cssNamespace}-${name}`

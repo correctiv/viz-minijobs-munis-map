@@ -1,0 +1,8 @@
+@import './hotspot-item.scss';
+
+@include cssPrefix('hotspot-selector') {
+
+  display: block;
+  width: 100%;
+
+}
