@@ -10,14 +10,18 @@ import './history-chart/history-chart.tag'
       <span class={ getClass('state') }>{ states[data.s] }</span>
       <h3 class={ getClass('title') }>{ data.gen }</h3>
     </section>
-    <section class={ getClass('header__section') }>
+    <section if={ data.available } class={ getClass('header__section') }>
       <span class={ getClass('population') }><strong>{ data.t }</strong>&nbsp;Einwohner</span>
       <span class={ getClass('f-ratio') }>davon <strong>{ data.fRatio }&nbsp;%</strong>&nbsp;Frauen</span>
     </section>
     <span class="-clear-"></span>
   </header>
 
-  <section class={ getClass('section') }>
+  <section if={ !data.available } class={ getClass('section', 'unavailable') }>
+    <p>Leider keine Daten für { data.gen }</p>
+  </section>
+
+  <section if={ data.available } class={ getClass('section') }>
     <h4 class={ getClass('section__title') }>Anteil der Minijobber</h4>
     <dl>
       <dt>{ data.pwa }&nbsp;%</dt>
@@ -34,7 +38,7 @@ import './history-chart/history-chart.tag'
     <span class="-clear-"></span>
   </section>
 
-  <section if={ supported } class={ getClass('section') + ' ' + getClass('section--last') }>
+  <section if={ supported && data.available } class={ getClass('section') + ' ' + getClass('section--last') }>
     <h4 class={ getClass('section__title') }>Entwicklung seit 2003</h4>
     <history-chart ref='history-chart' config={ opts.config.historyChart } data={ data } />
   </section>
@@ -48,6 +52,7 @@ import './history-chart/history-chart.tag'
 
   riot.control.on(riot.EVT.updateInfobox, ({data, point}) => {
     if (this._doUpdate(data, this)) {
+      data.available = !+data.empty
       // update position & data
       data.fRatio = Math.round(data.f / data.t * 1000) / 10
       this.update({
