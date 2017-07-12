@@ -20,15 +20,11 @@ import {search, states} from '../../data/entry.js'
 
   this.doSearch = e => {
     riot.control.trigger(riot.EVT.hideInfobox)
+    riot.STORE.infoboxLock = true
     const str = e.target.value.toLowerCase()
     if (str.length > 2) {
       const results = search(str)
-      if (results.length === 1) {
-        this.clearResults()
-        this._jumpTo(results[0])
-      } else {
-        this.update({results})
-      }
+      this.update({results})
     } else {
       this.clearResults()
     }
@@ -41,6 +37,7 @@ import {search, states} from '../../data/entry.js'
 
   this.clearResults = () => {
     this.update({results: []})
+    riot.STORE.infoboxLock = false
   }
 
   riot.control.on(riot.EVT.clearResults, () => {

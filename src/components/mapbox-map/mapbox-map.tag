@@ -1,5 +1,6 @@
 import mapboxgl from 'mapbox-gl'
 import initMapbox from './init_mapbox.js'
+import getFeature from './get_feature.js'
 
 <mapbox-map>
 
@@ -20,8 +21,18 @@ import initMapbox from './init_mapbox.js'
   })
 
   riot.control.on(riot.EVT.mapJumpTo, ({lon, lat}) => {
-    this.map.flyTo({center: [lon, lat], zoom: 8})
+    this.map.flyTo({center: [lon, lat], zoom: 9})
     this._setMarker({lon, lat})
+    // FIXME
+    // this.map.on('moveend', () => {
+    //   this.map.on('loaded', () => {
+    //     const {properties} = getFeature(this.currentMarker._pos)
+    //     properties && riot.control.trigger(riot.EVT.updateInfobox, {
+    //       point,
+    //       data: properties
+    //     })
+    //   })
+    // })
   })
 
   riot.control.on(riot.EVT.windowResize, () => {
@@ -42,6 +53,6 @@ import initMapbox from './init_mapbox.js'
     this.currentMarker = null
   }
 
-  this._getContainerWidth = () => this.refs[this.config.mapId].clientWidth
+  this._getContainerWidth = () => this.map.getContainer().clientWidth
 
 </mapbox-map>

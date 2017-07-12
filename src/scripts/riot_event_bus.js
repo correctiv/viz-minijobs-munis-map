@@ -6,8 +6,10 @@ const S = {
   supported: false,
   mapbox: {
     map: null,
+    layers: null,
     containerWidth: null
   },
+  infoboxLock: false,
   breakpoint: null,
   getActiveBreakpoint: null
 }
@@ -32,8 +34,8 @@ const C = riot.observable()
 // mouseover event chaining
 C.on(E.mapMouseOver, data => {
   // C.trigger(E.clearResults)  FIXME
-  C.trigger(E.updateInfobox, data)
-  C.trigger(E.mapClearMarker)
+  !S.infoboxLock && C.trigger(E.updateInfobox, data)
+  // C.trigger(E.mapClearMarker)
 })
 
 // trigger actual breakpoint

@@ -1,5 +1,6 @@
 import mapboxgl from 'mapbox-gl'
 import addLayers from './add_layers.js'
+import getFeature from './get_feature.js'
 
 export default ({
   mapId,
@@ -32,7 +33,7 @@ export default ({
   // add data source & events
   map.on('load', () => {
 
-    const layers = addLayers({
+    riot.STORE.mapbox.layers = addLayers({
       map,
       sources,
       stops,
@@ -42,7 +43,7 @@ export default ({
     })
 
     const triggerMouseOver = ({point}) => {
-      const feature = map.queryRenderedFeatures(point, {layers})[0]
+      const feature = getFeature(point)
       feature && riot.control.trigger(riot.EVT.mapMouseOver, {
         point,
         data: feature.properties,
