@@ -16,13 +16,13 @@
 
   &__title {
     margin: 0;
-    font-size: 20px;
+    font-size: 18px;
     font-family: $font-neuzeit;
   }
 
   &__state {
     color: $gray-dark;
-    font-size: 14px;
+    font-size: 12px;
     font-family: $font-neuzeit-cond;
     text-transform: uppercase;
   }
@@ -31,6 +31,7 @@
     display: none;
     padding: 15px;
     border: 1px solid $gray-light;
+    font-size: 15px;
 
     &.-active {
       display: block;
