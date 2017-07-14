@@ -4,14 +4,14 @@ import {search, states} from '../../data/entry.js'
 
   <input type="text"
     oninput={ doSearch } class={ getClass('input') }
-    placeholder="Suche nach Deiner Stadt oder Postleitzahl..."
+    placeholder="Suche nach Deiner Stadt..."
   />
   <ul if={ results.length } class={ getClass('result-list') }>
     <li each={ results }
       class={ parent.getClass('result-list__item') }
       onclick={ handleClick }>
       { name }
-      <span>{ plz }, { states[state] }</span>
+      <span>{ states[state] }</span>
     </li>
   </ul>
 
