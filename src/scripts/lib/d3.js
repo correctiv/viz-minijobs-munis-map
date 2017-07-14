@@ -9,6 +9,7 @@ export {
 } from 'd3-shape'
 
 export {
+  scaleQuantile,
   scaleLinear,
   scaleTime
 } from 'd3-scale'

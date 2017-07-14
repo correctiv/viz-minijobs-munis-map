@@ -33,9 +33,9 @@ const selector = '[data-riot-mount="cor-mj-munis-map"]'
 const container = d3.select(selector)
 
 if (container.node()) {
-  riot.STORE.isHotspots = config.isHotspots = !!+container.node().dataset.isHotspots
+  const hotspots = !!+container.node().dataset.isHotspots
+  riot.STORE.mode.hotspots = hotspots
+  riot.STORE.mode.normal = !hotspots
   riot.mount(selector, 'cor-mj-munis-map', {config})
-  if (config.isHotspots) {
-    riot.mount('[data-riot-mount="cor-mj-munis-hotspots"]', 'cor-mj-munis-hotspots')
-  }
+  hotspots && riot.mount('[data-riot-mount="cor-mj-munis-hotspots"]', 'cor-mj-munis-hotspots')
 }

@@ -8,26 +8,39 @@
     }
   },
   "mapbox": {
-    "accessToken": "pk.eyJ1Ijoic2ltb253b2VycGVsIiwiYSI6ImNqMHA0cGY4eDAwd3QzMm1yZm9yY3c0cWUifQ.78weiiM4vcLanNNg-v7EBA",
+    "accessToken": "pk.eyJ1IjoiY29ycmVjdGl2IiwiYSI6ImNqNTJ1OXhrcDBma3oycWx5MTI4OXpzaTQifQ.rKZroMYP1Kr4YUDJ_dJ_2g",
     "mapId": "mj-map",
-    "property": "pwi",
-    "labels": "mapbox://styles/simonwoerpel/cj0xv72fk00wi2rqp74nln4ln",
+    "labels": "mapbox://styles/mapbox/light-v9",
     "sources": {
       "6": {
-        "mapId": "simonwoerpel.3q50nr8a",
-        "layer": "mj-munis-all_simple_low-zoom-blxd6n"
-      },
-      "7": {
-        "mapId": "simonwoerpel.5ql6wuuv",
-        "layer": "mj-munis-all_simple-8hm8ho"
+        "mapId": "correctiv.d3f69vtp",
+        "layer": "mj-munis-all_lowres-9oofoh"
       },
       "8": {
-        "mapId": "simonwoerpel.0iugwqkl",
-        "layer": "mj-munis-all-1cbi2o"
+        "mapId": "correctiv.acdnz8o5",
+        "layer": "mj-munis-all_midres-axbaqs"
+      },
+      "11": {
+        "mapId": "correctiv.br5x3lch",
+        "layer": "mj-munis-all_highres-88yszd"
       }
     },
-    "stops": [-99, 1, 2, 3, 4, 5, 6, 7, 8, 9],
-    "colors": ["white", "#f7fcfd", "#e0ecf4" ,"#bfd3e6" ,"#9ebcda" ,"#8c96c6" ,"#8c6bb1" ,"#88419d" ,"#810f7c" ,"#4d004b"],
+    "views": {
+      "normal": {
+        "property": "pwi",
+        "colors": ["#f7fcfd", "#e0ecf4" ,"#bfd3e6" ,"#9ebcda" ,"#8c96c6" ,"#8c6bb1" ,"#88419d" ,"#810f7c" ,"#4d004b"],
+        "domain": [0, 15]
+      },
+      "hotspots": {
+        "property": "pai",
+        "colors": ["#ffffff", "#f0f0f0", "#d9d9d9", "#bdbdbd", "#969696", "#737373"],
+        "domain": [0, 20],
+        "extraStops": [
+          [20, "orange"],
+          [30, "red"]
+        ]
+      }
+    },
     "bBox": [5.9,47.3,15.0,55.0],
     "center": [11.920, 52.183],
     "initZoom": 6,

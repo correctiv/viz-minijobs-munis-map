@@ -1,15 +1,19 @@
+import getColorStops from './get_color_stops.js'
+
 // add layers from sources
 export default ({
   map,
   sources,
-  stops,
+  domain,
   colors,
+  extraStops,
   property,
   maxZoom
 }) => {
 
   const zooms = Object.keys(sources)
-  const stopColors = stops.map((s, i) => [s, colors[i]])
+  const stops = getColorStops(colors, domain)
+  extraStops && extraStops.map(s => stops.push([s[0], s[1]]))
   const addedLayers = []
 
   zooms.map((zoom, i) => {
@@ -33,7 +37,8 @@ export default ({
       paint: {
         'fill-color': {
           property,
-          stops: stopColors
+          type: 'interval',
+          stops
         },
         'fill-outline-color': 'white',
         'fill-opacity': .75

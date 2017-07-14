@@ -12,19 +12,24 @@ export default ({
   minZoom,
   labels,
   sources,
-  stops,
-  colors,
-  property
+  views
 }) => {
 
   mapboxgl.accessToken = accessToken
+
+  const normal = riot.STORE.mode.normal
+  const {
+    property,
+    colors,
+    domain,
+    extraStops
+  } = normal ? views.normal : views.hotspots
 
   const map = new mapboxgl.Map({
     container: mapId,
     center,
     zoom: initZoom,
-    // style: labels
-    style: 'mapbox://styles/mapbox/light-v9'
+    style: labels
   })
     .setMaxZoom(maxZoom)
     .setMinZoom(minZoom)
@@ -36,8 +41,9 @@ export default ({
     riot.STORE.mapbox.layers = addLayers({
       map,
       sources,
-      stops,
+      domain,
       colors,
+      extraStops,
       property,
       maxZoom
     })
@@ -53,7 +59,7 @@ export default ({
     map.on('mousemove', e => triggerMouseOver(e))
 
     // hide infobox if we are in hotspots mode
-    riot.STORE.isHotspots && map.on('mouseout', () => riot.control.trigger(riot.EVT.hideInfobox))
+    riot.STORE.mode.hotspots && map.on('mouseout', () => riot.control.trigger(riot.EVT.hideInfobox))
   })
 
 
