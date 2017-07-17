@@ -21,7 +21,9 @@ riot.STORE.getActiveBreakpoint = getActiveBreakpoint
 
 // mixins
 import getClass from './mixins/class_name.js'
+import numberFormat from './mixins/number_format.js'
 riot.mixin(getClass(config.global.cssNamespace))
+riot.mixin(numberFormat)
 
 // mount app
 import '../components/app.tag'
