@@ -16,8 +16,8 @@ import './fallback-static-map/fallback-static-map.tag'
   this.supported = false
 
   this.on('before-mount', () => {
-    this.supported = riot.STORE.supported = false
-    // this.supported = riot.STORE.supported = mapboxgl.supported()
+    // this.supported = riot.STORE.supported = false
+    this.supported = riot.STORE.supported = mapboxgl.supported()
     !this.supported && riot.control.trigger(riot.EVT.unsupported)
   })
 
