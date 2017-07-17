@@ -1,4 +1,5 @@
 import mapboxgl from 'mapbox-gl'
+import * as d3 from '../scripts/lib/d3.js'
 import './mapbox-map/mapbox-map.tag'
 import './map-infobox/map-infobox.tag'
 import './map-searchbox/map-searchbox.tag'
@@ -26,8 +27,8 @@ import './fallback-static-map/fallback-static-map.tag'
 
   riot.control.on(riot.EVT.loaded, () => {
     // remove loading spinner
-    const spinner = document.querySelector('.mjmm-loading-spinner')
-    spinner.className = 'mjmm-loading-spinner mjmm-loading-spinner--loaded'
+    d3.select(`.${this.getClass('loading-spinner')}`)
+      .classed(this.getClass('loading-spinner', 'loaded'), true)
   })
 
 </cor-mj-munis-map>
