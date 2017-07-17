@@ -6,8 +6,10 @@ import * as d3 from '../../scripts/lib/d3.js'
 // const colors = [ '#fff7fb', '#ece2f0', '#d0d1e6', '#a6bddb', '#67a9cf', '#3690c0', '#02818a', '#016c59', '#014636' ]
 // const colors = [ '#ffffe5', '#f7fcb9', '#d9f0a3', '#addd8e', '#78c679', '#41ab5d', '#238443', '#006837', '#004529' ]
 // export default domain => d3.scaleQuantile().domain([0, 15]).range(colors)
-export default (colors, domain) => {
-  return d3.scaleQuantile().domain(domain).range(colors).quantiles().map((q, i) => {
+export default (colors, domain, extraStops=null) => {
+  const stops = d3.scaleQuantile().domain(domain).range(colors).quantiles().map((q, i) => {
     return [q, colors[i]]
   })
+  extraStops && extraStops.map(s => stops.push([s[0], s[1]]))
+  return stops
 }

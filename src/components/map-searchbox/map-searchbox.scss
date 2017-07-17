@@ -1,9 +1,8 @@
 @include cssPrefix('searchbox') {
   position: absolute;  // FIXME
   display: block;
-  margin-bottom: 10px;
-  width: 94%;
-  margin-left: 3%;
+  width: 100%;
+  padding: 0 15px 15px 15px;
   z-index: 1110;
 
   @include bp-sm {
@@ -25,8 +24,9 @@
   &__result-list {
     position: absolute;
     top: 34px;
+    left: 15px;
+    right: 15px;
     display: block;
-    width: 100%;
     background-color: $white-transp;
     box-shadow: $box-shadow;
     margin: 0;
@@ -37,6 +37,8 @@
     @include bp-sm {
       width: 300px;
       top: 43px;
+      left: 40px;
+      right: 10px;
     }
 
     &__item {

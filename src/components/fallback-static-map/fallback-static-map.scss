@@ -1,8 +1,7 @@
 @include cssPrefix('fallback-static-map') {
   position: relative;
   display: block;
-  padding-top: 40px;  // searchbox
-  width: 100%;
+  padding: 40px 15px 15px 15px;
 
   &__placeholder-img {
     display: block;

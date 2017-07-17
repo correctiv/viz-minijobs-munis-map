@@ -12,8 +12,7 @@ export default ({
 }) => {
 
   const zooms = Object.keys(sources)
-  const stops = getColorStops(colors, domain)
-  extraStops && extraStops.map(s => stops.push([s[0], s[1]]))
+  const stops = getColorStops(colors, domain, extraStops)
   const addedLayers = []
 
   zooms.map((zoom, i) => {
