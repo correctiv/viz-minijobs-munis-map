@@ -57,19 +57,19 @@ C.on(E.unsupported, () => {
     data.map(d => {
       S.unsupportedData[d.ags] = d
     })
-    C.trigger(E.unsupportedDataLoaded)
-  })
 
-  // forward jumpto event to infobox
-  C.on(E.mapJumpTo, ({data}) => {
-    const _data = S.unsupportedData[data.ags]
-    _data.gen = data.name
-    _data.s = data.state
-    C.trigger(E.updateInfobox, {
-      data: _data,
-      point: {}
+    C.trigger(E.unsupportedDataLoaded)
+    // forward jumpto event to infobox
+    C.on(E.mapJumpTo, data => {
+      const _data = S.unsupportedData[data.ags]
+      _data.gen = data.name
+      _data.s = data.state
+      C.trigger(E.updateInfobox, {
+        data: _data,
+        point: {}
+      })
     })
-   })
+  })
 })
 
 // make available
