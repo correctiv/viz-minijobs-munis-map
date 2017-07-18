@@ -56,10 +56,12 @@ export default ({
       })
     }
 
+    map.scrollZoom.disable()
     map.on('mousemove', e => triggerMouseOver(e))
 
     // hide infobox if we are in hotspots mode
-    riot.STORE.mode.hotspots && map.on('mouseout', () => riot.control.trigger(riot.EVT.hideInfobox))
+    // FIXME
+    // riot.STORE.mode.hotspots && map.on('mouseout', () => riot.control.trigger(riot.EVT.hideInfobox))
   })
 
 
