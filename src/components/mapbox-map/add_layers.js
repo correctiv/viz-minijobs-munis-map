@@ -35,6 +35,7 @@ export default ({
       type: 'fill',
       paint: {
         'fill-color': {
+          default: 'white',
           property,
           type: 'interval',
           stops
