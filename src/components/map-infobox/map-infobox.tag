@@ -98,7 +98,7 @@ import './history-chart/history-chart.tag'
     const bigger = riot.STORE.breakpoint !== 'small'
     return bigger && this.supported ?
       `top:${y < 360 ? y + 30 : y - 500}px;left:${width - 320 < x ? x - 320 : x + 20}px;` :
-        !bigger ? 'top:50px;bottom:10px;right:10px;left:10px;' : null
+        !bigger ? 'top:50px;bottom:120px;right:10px;left:10px;' : null
   }
 
   this._doUpdate = ({ags}, that) => {
