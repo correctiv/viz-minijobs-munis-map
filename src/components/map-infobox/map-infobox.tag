@@ -20,6 +20,9 @@ import './history-chart/history-chart.tag'
   <section if={ !data.available } class={ getClass('section', 'unavailable') }>
     <p>Leider keine Daten für { data.gen }</p>
   </section>
+  <section if={ !data.available } class={ getClass('section', 'unavailable') }>
+    <p>&nbsp;</p>
+  </section>
 
   <section if={ data.available } class={ getClass('section') }>
     <h4 class={ getClass('section__title') }>Anteil der Minijobber</h4>
@@ -42,7 +45,7 @@ import './history-chart/history-chart.tag'
     <span class="-clear-"></span>
   </section>
 
-  <section if={ supported && data.available } class={ getClass('section') + ' ' + getClass('section--last') }>
+  <section if={ supported && data.available } class={ getClass('section', 'last') }>
     <h4 class={ getClass('section__title') }>Entwicklung seit 2003</h4>
     <history-chart ref='history-chart' config={ opts.config.historyChart } data={ data } />
   </section>
@@ -94,8 +97,8 @@ import './history-chart/history-chart.tag'
     const width = riot.STORE.mapbox.containerWidth
     const bigger = riot.STORE.breakpoint !== 'small'
     return bigger && this.supported ?
-      `top:${y < 360 ? y + 30 : y - 460}px;left:${width - 320 < x ? x - 320 : x + 20}px;` :
-        !bigger ?  'top:50px;bottom:10px;right:10px;left:10px;' : null
+      `top:${y < 360 ? y + 30 : y - 500}px;left:${width - 320 < x ? x - 320 : x + 20}px;` :
+        !bigger ? 'top:50px;bottom:10px;right:10px;left:10px;' : null
   }
 
   this._doUpdate = ({ags}, that) => {
