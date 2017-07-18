@@ -23,19 +23,20 @@ import './history-chart/history-chart.tag'
 
   <section if={ data.available } class={ getClass('section') }>
     <h4 class={ getClass('section__title') }>Anteil der Minijobber</h4>
+    <span class={ getClass('section__subtitle') }>{ locationName }</span>
     <dl>
-      <dt>{ _f(data.pwa) }&nbsp;%</dt>
-      <dt class="-small">{ data.wa }</dt>
+      <dt>{ _f(data.pa) }&nbsp;%</dt>
+      <dt class="-small">{ data.a }</dt>
       <dd class="badge badge--e">ausschließlich</dd>
     </dl>
     <dl>
-      <dt>{ _f(data.pwn) }&nbsp;%</dt>
-      <dt class="-small">{ data.wn }</dt>
+      <dt>{ _f(data.pn) }&nbsp;%</dt>
+      <dt class="-small">{ data.n }</dt>
       <dd class="badge badge--i">Nebenjob</dd>
     </dl>
     <dl>
-      <dt>{ _f(data.pwi) }&nbsp;%</dt>
-      <dt class="-small">{ data.wi }</dt>
+      <dt>{ _f(data.pi) }&nbsp;%</dt>
+      <dt class="-small">{ data.i }</dt>
       <dd class="badge badge--t">Gesamt</dd>
     </dl>
     <span class="-clear-"></span>
@@ -52,15 +53,17 @@ import './history-chart/history-chart.tag'
   this.data = {}
   this.states = states
   this.ags = null  // remember which city we currently show
+  this.locationName = riot.STORE.mode.normal ? 'nach Wohnort' : 'nach Arbeitsort'
 
   riot.control.on(riot.EVT.updateInfobox, ({data, point}) => {
     if (this._doUpdate(data, this)) {
-      data.available = !+data.empty
+      const _data = this._getData(data)
+      _data.available = !+data.empty
       // update position & data
-      data.fRatio = Math.round(data.f / data.t * 1000) / 10
+      _data.fRatio = Math.round(data.f / data.t * 1000) / 10
       this.update({
         point,
-        data,
+        data: _data,
         visible: true,
         position: this._getPosition(point)
       })
@@ -102,6 +105,17 @@ import './history-chart/history-chart.tag'
       that.ags = ags
       return true
     }
+  }
+
+  this._getData = d => {
+    const _ = riot.STORE.mode.normal
+    d.a = _ ? d.wa : d.aa
+    d.pa = _ ? d.pwa : d.paa
+    d.n = _ ? d.wn : d.an
+    d.pn = _ ? d.pwn : d.pan
+    d.i = _ ? d.wi : d.ai
+    d.pi = _ ? d.pwi : d.pai
+    return d
   }
 
 </map-infobox>
