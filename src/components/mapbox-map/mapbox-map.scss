@@ -34,9 +34,11 @@
       display: block;
       width: 20px;
       height: 20px;
-      border: 3px solid $purple-darker;
+      // border: 3px solid $purple-darker;
+      border: 3px solid $blue-darker;
       border-radius: 100%;
-      background-color: transparentize($purple-lighter, .3);
+      // background-color: transparentize($purple-lighter, .3);
+      background-color: transparentize($blue-lighter, .3);
     }
   }
 }
