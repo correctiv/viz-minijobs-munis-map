@@ -5,8 +5,11 @@
   background-color: $white-transp;
   box-shadow: $box-shadow;
 
-  @include bp-xs {
+  @include bp-sm {
     width: 350px;
+    position: absolute;
+    bottom: 20px;
+    left: 15px;
   }
 
   &__list {
@@ -29,7 +32,6 @@
   &__annotation {
     display: block;
     font-size: 14px;
-    font-weight: bold;
   }
 
 }
