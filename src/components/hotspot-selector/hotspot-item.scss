@@ -4,7 +4,7 @@
 
   &__header {
     cursor: pointer;
-    padding: 10px 15px 0px 15px;
+    padding: 5px 15px 5px 15px;
     background-color: $gray-lighter;
     @include transition(background-color $transition-duration);
 

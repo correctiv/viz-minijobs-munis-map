@@ -5,7 +5,9 @@
     <h4 class={ getClass('title') }>{ opts.data.gen }</h4>
   </header>
   <section class="{ getClass('section') } { -active: opts.active }">
-    <p>{ opts.data.t } / { opts.data.ai } / { opts.data.pai }</p>
+    <p><strong>Einwohner:</strong> { opts.data.t }<br>
+        <strong>Minijobber:</strong> { opts.data.ai } ({ _f(opts.data.pai) } %)
+    </p>
     <p>{ opts.data.story }</p>
   </section>
 

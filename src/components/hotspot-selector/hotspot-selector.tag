@@ -17,6 +17,7 @@ import './hotspot-item.tag'
     const index = this.hotspots.indexOf(hotspot)
     const active = index === this.active ? null : index
     this.update({active})
+    riot.control.trigger(riot.EVT.hideInfobox)
     riot.control.trigger(riot.EVT.mapJumpTo, hotspot)
   }
 </hotspot-selector>
