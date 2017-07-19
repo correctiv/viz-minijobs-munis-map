@@ -12,17 +12,33 @@
     "mapId": "mj-map",
     "labels": "mapbox://styles/mapbox/light-v9",
     "sources": {
-      "6": {
-        "mapId": "correctiv.d3f69vtp",
-        "layer": "mj-munis-all_lowres-9oofoh"
+      "normal": {
+        "6": {
+          "mapId": "correctiv.1qbq67ar",
+          "layer": "mj-munis-all_wohnort_lowres-aq9u5y"
+        },
+        "8": {
+          "mapId": "correctiv.9njqau0t",
+          "layer": "mj-munis-all_wohnort_midres-3x0j84"
+        },
+        "11": {
+          "mapId": "correctiv.cmpju65n",
+          "layer": "mj-munis-all_wohnort_highres-91u9fd"
+        }
       },
-      "8": {
-        "mapId": "correctiv.acdnz8o5",
-        "layer": "mj-munis-all_midres-axbaqs"
-      },
-      "11": {
-        "mapId": "correctiv.br5x3lch",
-        "layer": "mj-munis-all_highres-88yszd"
+      "hotspots": {
+        "6": {
+          "mapId": "correctiv.90rk36rl",
+          "layer": "mj-munis-all_arbeitsort_lowre-b84p96"
+        },
+        "8": {
+          "mapId": "correctiv.bq557ytm",
+          "layer": "mj-munis-all_arbeitsort_midre-a9an9g"
+        },
+        "11": {
+          "mapId": "correctiv.1o7yml0c",
+          "layer": "mj-munis-all_arbeitsort_highr-1m7gfm"
+        }
       }
     },
     "views": {
@@ -37,6 +53,7 @@
         "domain": [0, 20],
         "extraStops": [
           [20, "#ec7014"],
+          [25, "#993404"],
           [30, "#662506"]
         ]
       }
@@ -48,11 +65,24 @@
     "minZoom": 6
   },
   "historyChart": {
-    "keys": [
-      "pwi_h",
-      "pwa_h",
-      "pwn_h"
-    ],
+    "normal": {
+      "keys": [
+        "pwi_h",
+        "pwa_h",
+        "pwn_h"
+      ],
+      "yExtent": [0, 15],
+      "yTickValues": [0, 5, 10, 15]
+    },
+    "hotspots": {
+      "keys": [
+        "pai_h",
+        "paa_h",
+        "pan_h"
+      ],
+      "yExtent": [0, 30],
+      "yTickValues": [0, 10, 20, 30]
+    },
     "width": 300,
     "height": 80,
     "margin": {
@@ -61,9 +91,7 @@
       "bottom": 20,
       "left": 20
     },
-    "xExtent": ["2003", "2016"],
-    "yExtent": [0, 15],
-    "yTickValues": [0, 5, 10, 15]
+    "xExtent": ["2003", "2016"]
   }
 }
 

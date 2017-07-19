@@ -5,6 +5,7 @@ import transformData from './transform_data.js'
 
 <history-chart class={ getClass() }>
 
+  const mode = riot.STORE.mode.normal ? 'normal' : 'hotspots'
   this.drawed = false  // identify if we already drawed a line
   this._doUpdate = this.parent._doUpdate
   this.ags = null  // remember which city we currently show
@@ -19,7 +20,7 @@ import transformData from './transform_data.js'
   this.on('update', () => {
     if (this._doUpdate(this.opts.data, this)) {
       const {g, line} = this.chart
-      const data = transformData(this.opts.data, this.opts.config.keys)
+      const data = transformData(this.opts.data, this.opts.config[mode].keys)
       if (data) {
         if (this.drawed) {
           updateLine({g, line, data})

@@ -40,7 +40,7 @@ export default ({
 
     riot.STORE.mapbox.layers = addLayers({
       map,
-      sources,
+      sources: normal ? sources.normal : sources.hotspots,
       domain,
       colors,
       extraStops,

@@ -9,9 +9,11 @@ export default ({
   height,
   margin,
   xExtent,
-  yExtent,
-  yTickValues
+  normal,
+  hotspots
 }) => {
+  const {yExtent, yTickValues} = riot.STORE.mode.normal ? normal : hotspots
+
   const x = d3.scaleTime().rangeRound([0, width])
     .domain([toDate(xExtent[0]), toDate(xExtent[1])])
   const y = d3.scaleLinear().rangeRound([height, 0])
