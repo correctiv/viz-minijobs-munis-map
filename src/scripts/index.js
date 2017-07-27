@@ -5,6 +5,9 @@ if (module.hot) {
 }
 
 // import 'babel-polyfill'
+import './lib/polyfills/array.find.js'
+
+// styles
 import '../styles/index.scss'
 
 // load config
