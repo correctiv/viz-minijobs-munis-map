@@ -30,3 +30,7 @@ export {
 export {
   csv
 } from 'd3-request'
+
+export {
+  formatLocale
+} from 'd3-format'

@@ -11,7 +11,7 @@ import './history-chart/history-chart.tag'
       <h3 class={ getClass('title') }>{ data.gen }</h3>
     </section>
     <section if={ data.available } class={ getClass('header__section') }>
-      <span class={ getClass('population') }><strong>{ data.t }</strong>&nbsp;Einwohner</span>
+      <span class={ getClass('population') }><strong>{ _f(data.t) }</strong>&nbsp;Einwohner</span>
       <span class={ getClass('f-ratio') }>davon <strong>{ _f(data.fRatio) }&nbsp;%</strong>&nbsp;Frauen</span>
     </section>
     <span class="-clear-"></span>
@@ -29,17 +29,17 @@ import './history-chart/history-chart.tag'
     <span class={ getClass('section__subtitle') }>{ locationName }</span>
     <dl>
       <dt>{ _f(data.pa) }&nbsp;%</dt>
-      <dt class="-small">{ data.a }</dt>
+      <dt class="-small">{ _f(data.a) }</dt>
       <dd class="badge badge--e">ausschließlich</dd>
     </dl>
     <dl>
       <dt>{ _f(data.pn) }&nbsp;%</dt>
-      <dt class="-small">{ data.n }</dt>
+      <dt class="-small">{ _f(data.n) }</dt>
       <dd class="badge badge--i">Nebenjob</dd>
     </dl>
     <dl>
       <dt>{ _f(data.pi) }&nbsp;%</dt>
-      <dt class="-small">{ data.i }</dt>
+      <dt class="-small">{ _f(data.i) }</dt>
       <dd class="badge badge--t">Gesamt</dd>
     </dl>
     <span class="-clear-"></span>
@@ -118,6 +118,7 @@ import './history-chart/history-chart.tag'
     d.pn = _ ? d.pwn : d.pan
     d.i = _ ? d.wi : d.ai
     d.pi = _ ? d.pwi : d.pai
+    console.log(d)
     return d
   }
 
