@@ -118,7 +118,6 @@ import './history-chart/history-chart.tag'
     d.pn = _ ? d.pwn : d.pan
     d.i = _ ? d.wi : d.ai
     d.pi = _ ? d.pwi : d.pai
-    console.log(d)
     return d
   }
 

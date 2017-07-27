@@ -16,15 +16,15 @@
       @include transition(all, $transition-duration);
       stroke-width: 2px;
 
-      &--pwi_h {
+      &--pwi_h, &--pai_h {
         stroke: $total-color;
       }
 
-      &--pwa_h {
+      &--pwa_h, &--paa_h {
         stroke: $exclusive-color;
       }
 
-      &--pwn_h {
+      &--pwn_h, &--pan_h {
         stroke: $inclusive-color;
       }
     }
