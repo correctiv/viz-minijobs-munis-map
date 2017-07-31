@@ -43,9 +43,9 @@
     },
     "views": {
       "normal": {
-        "property": "pwi",
+        "property": "pwa",
         "colors": [ "#ffffe5", "#fff7bc", "#fee391", "#fec44f", "#fe9929", "#ec7014", "#cc4c02", "#993404", "#662506" ],
-        "domain": [0, 15]
+        "domain": [0, 10]
       },
       "hotspots": {
         "property": "pai",
@@ -58,8 +58,8 @@
         ]
       }
     },
-    "bBox": [5.9,47.3,15.0,55.0],
-    "center": [11.920, 52.183],
+    "bBox": [-3.66,45.4,24.88,55.48],
+    "center": [10.45, 51.18],
     "initZoom": 6,
     "maxZoom": 12,
     "minZoom": 6
