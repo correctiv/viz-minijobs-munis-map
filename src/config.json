@@ -49,7 +49,7 @@
       },
       "hotspots": {
         "property": "pai",
-        "colors": ["#ffffff", "#f0f0f0", "#d9d9d9", "#bdbdbd", "#969696", "#737373"],
+        "colors": ["#ffffff", "#f0f0f0", "#d9d9d9", "#bdbdbd"],
         "domain": [0, 20],
         "extraStops": [
           [20, "#ec7014"],
