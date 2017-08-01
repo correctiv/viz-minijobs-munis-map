@@ -6,7 +6,7 @@
       Du kannst trotzdem die Suchleiste oben benutzen, um die Daten für Deine
       Stadt oder Gemeinde zu sehen.</p>
   </section>
-  <img src="./img/germany_placeholder.png" class={ getClass('placeholder-img') } />
+  <img src="https://correctiv.github.io/viz-minijobs-munis-map/dist/img/germany_placeholder.jpg" class={ getClass('placeholder-img') } />
 
   this.visible = true
   this.close = () => this.update({visible: false})
