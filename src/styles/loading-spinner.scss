@@ -5,7 +5,7 @@
   width: 100%;
   min-height: 500px;
   height: 100%;
-  // background: url('./img/loading.gif') no-repeat center white; // FIXME webpack
+  background: url('https://correctiv.github.io/viz-minijobs-munis-map/dist/img/loading.gif') no-repeat center white; // FIXME webpack
 
   &--loaded {
     min-height: 0;
