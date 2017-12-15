@@ -2,6 +2,8 @@
 
 Show minijobs data on municipality level with mapbox-gl.
 
+[See in action at correctiv.org](https://correctiv.org/a/1868)
+
 [Preview via gh-pages](https://correctiv.github.io/viz-minijobs-munis-map/dist/)
 
 [Preview "hotspots view"](https://correctiv.github.io/viz-minijobs-munis-map/dist/hotspots)
